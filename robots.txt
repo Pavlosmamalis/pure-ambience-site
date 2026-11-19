@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pureambienceaudio.com/sitemap.xml

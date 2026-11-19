@@ -7,20 +7,80 @@
 <meta name="description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
 <meta name="theme-color" content="#141619">
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
+<link rel="canonical" href="https://pureambienceaudio.com/">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PureAmbience">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://pureambienceaudio.com/">
+<meta property="og:title" content="PureAmbience: instruments and effects">
+<meta property="og:description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
+<meta property="og:image" content="https://pureambienceaudio.com/img/card-bass-1280.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="Pure Ambience, Bass tab: oscillator, filter, envelope and Twist knobs in the plugin window">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PureAmbience: instruments and effects">
+<meta name="twitter:description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
+<meta name="twitter:image" content="https://pureambienceaudio.com/img/card-bass-1280.jpg">
+<meta name="twitter:image:alt" content="Pure Ambience, Bass tab: oscillator, filter, envelope and Twist knobs in the plugin window">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="preload" as="image" href="img/hero_glasshouse.webp" type="image/webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pureambienceaudio.com/#org",
+      "name": "PureAmbience",
+      "url": "https://pureambienceaudio.com/",
+      "logo": "https://pureambienceaudio.com/img/favicon-180.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pureambienceaudio.com/#website",
+      "url": "https://pureambienceaudio.com/",
+      "name": "PureAmbience",
+      "publisher": {"@id": "https://pureambienceaudio.com/#org"},
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://pureambienceaudio.com/#pure-ambience",
+      "name": "Pure Ambience",
+      "description": "A four-engine synthesizer plugin (VST3/AU, Mac and Windows) for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "macOS 11+, Windows 10/11",
+      "url": "https://pureambienceaudio.com/#pure-ambience",
+      "image": "https://pureambienceaudio.com/img/card-bass-1280.jpg",
+      "publisher": {"@id": "https://pureambienceaudio.com/#org"},
+      "offers": {
+        "@type": "Offer",
+        "price": "19.99",
+        "priceCurrency": "GBP",
+        "availability": "https://schema.org/InStock",
+        "url": "https://vls7.gumroad.com/l/pure-ambience"
+      }
+    }
+  ]
+}
+</script>
 <style>
 /* Palette: the plugin's own Source/LookAndFeel.h values (brand guide section 5:
    the plugin is the master palette; the site follows it). */
 :root{
   --bg:#141619; --panel:#12161a; --steel:#b8c2cc; --steel-dark:#22252a; --steel-deep:#0b0d0f;
   --moss-edge:#3b5241;
-  --bass:#c84b59; --melody:#5cc8d7; --atmos:#967bb6; --nature:#4e9f76; --master:#c9933f;
+  --bass:#c84b59; --bass-text:#d9667a; --melody:#5cc8d7; --atmos:#967bb6; --nature:#4e9f76; --master:#c9933f;
   --text:#e4e8ec; --dim:#8a949e;
   --line:rgba(184,194,204,.14);
   --serif:'Cormorant Garamond',Georgia,serif;
@@ -132,7 +192,7 @@ h2.section-title{font-size:clamp(1.8rem,3.4vw,2.5rem); max-width:680px}
 .gcard .win picture{display:block; height:100%}
 .gcard .win img{height:100%; width:auto; max-width:none}
 .gcard figcaption{padding:14px 16px 16px; color:var(--dim); font-size:.9rem}
-.gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent); margin-right:4px}
+.gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent-text,var(--accent)); margin-right:4px}
 .gcard strong{font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-right:6px}
 h3.sub{font-size:1.5rem; margin-top:56px}
 .daw{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; align-items:start}
@@ -206,7 +266,7 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 @media (max-width:880px){.engines{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:460px){.engines{grid-template-columns:1fr}}
 .engine{background:var(--panel); padding:26px 22px; min-width:0; border-top:3px solid var(--accent)}
-.engine .num{font-family:var(--mono); font-size:.74rem; color:var(--accent)}
+.engine .num{font-family:var(--mono); font-size:.74rem; color:var(--accent-text,var(--accent))}
 .engine h3{font-size:1.3rem; margin-top:8px}
 .engine p{color:var(--dim); font-size:.9rem; margin-top:8px}
 
@@ -247,11 +307,11 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 <header class="hero" id="top">
   <picture>
     <source srcset="img/hero_glasshouse.webp" type="image/webp">
-    <img src="img/hero_glasshouse.png" width="1408" height="768" alt="" fetchpriority="high">
+    <img src="img/hero_glasshouse.jpg" width="1408" height="768" alt="" fetchpriority="high">
   </picture>
   <div class="fog" aria-hidden="true"></div>
   <div class="hero-inner wrap">
-    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+    <picture><source type="image/webp" srcset="img/logo-wordmark.webp"><img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience"></picture>
     <div class="eyebrow">Plugins</div>
     <h1 class="title">Instruments grown,<br>not designed.</h1>
     <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
@@ -332,15 +392,15 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
     <div class="panel daylight-panel" style="--pw:715">
       <figure class="spec" style="--w:415">
         <figcaption>WORDMARK ON DAYLIGHT</figcaption>
-        <img src="img/spec-wordmark-daylight.png" width="415" height="71" alt="">
+        <img src="img/spec-wordmark-daylight.png" width="415" height="71" loading="lazy" decoding="async" alt="">
       </figure>
       <figure class="spec" style="--w:150;--iw:98">
         <figcaption>MASTER MARK, INK</figcaption>
-        <img src="img/spec-master-mark-ink.png" width="98" height="105" alt="">
+        <img src="img/spec-master-mark-ink.png" width="98" height="105" loading="lazy" decoding="async" alt="">
       </figure>
       <figure class="spec" style="--w:150;--iw:98">
         <figcaption>SINGLE INK, MONO</figcaption>
-        <img src="img/spec-single-ink-mono.png" width="98" height="104" alt="">
+        <img src="img/spec-single-ink-mono.png" width="98" height="104" loading="lazy" decoding="async" alt="">
       </figure>
     </div>
   </div>
@@ -354,7 +414,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
     <p class="lede">Pure Ambience is a four-engine synthesizer plugin (VST3/AU, Mac &amp; Windows) built around a simple idea: most synths sound clean because they're trying to. Pure Ambience is built to sound alive.</p>
 
     <div class="gallery" aria-label="Pure Ambience, one card per engine">
-      <figure class="gcard" style="--accent:var(--bass)">
+      <figure class="gcard" style="--accent:var(--bass); --accent-text:var(--bass-text)">
         <picture>
           <source type="image/webp" srcset="img/card-bass-640.webp 640w, img/card-bass-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
           <img src="img/card-bass-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Bass tab: waveform, three oscillators including a sub, AM mod and sub-octave switches, filter, envelope, LFO and the Twist knob">
@@ -434,7 +494,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 <footer>
   <div class="wrap foot-row">
     <div class="foot-brand">
-      <img class="foot-mark" src="img/logo-mark.png" width="172" height="186" alt="" aria-hidden="true">
+      <picture><source type="image/webp" srcset="img/logo-mark.webp"><img class="foot-mark" src="img/logo-mark.png" width="172" height="186" loading="lazy" decoding="async" alt="" aria-hidden="true"></picture>
       <div class="mono">PUREAMBIENCE</div>
     </div>
     <div class="foot-links">
