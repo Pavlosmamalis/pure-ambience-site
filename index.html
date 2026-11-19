@@ -156,7 +156,8 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 
 /* hero: the brand sheet as a horizontal specimen plate */
 .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
-.hero-plate{padding-top:28px}
+.hero-plate{padding-block:28px 0}
+.hero-plate .daylight-panel{flex:1 1 auto; justify-content:space-around}
 .plate{position:relative; display:flex; margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px)); border:1px solid var(--line)}
 .plate::before,.plate::after{content:"+"; position:absolute; font:400 14px/1 var(--mono); color:var(--dim); z-index:2}
 .plate::before{left:-5px; top:-8px} .plate::after{right:-5px; bottom:-8px}
@@ -243,22 +244,26 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </nav>
 
-<header class="hero-plate" id="top">
-  <div class="plate" role="img" aria-label="Pure Ambience brand sheet: the wordmark with its vine and crack underline, the horizontal and stacked lockups, and the thorned-star master mark, shown on dark ground and on daylight">
-    <div class="panel ground" style="--pw:1039">
-      <figure class="spec" style="--w:415">
-        <figcaption>WORDMARK ON GROUND</figcaption>
-        <img src="img/spec-wordmark-ground.png" width="415" height="71" alt="">
-      </figure>
-      <figure class="spec" style="--w:405">
-        <figcaption>HORIZONTAL LOCKUP</figcaption>
-        <img src="img/spec-horizontal-lockup.png" width="405" height="64" alt="">
-      </figure>
-      <figure class="spec" style="--w:219">
-        <figcaption>STACKED LOCKUP</figcaption>
-        <img src="img/spec-stacked-lockup.png" width="219" height="137" alt="">
-      </figure>
+<header class="hero" id="top">
+  <picture>
+    <source srcset="img/hero_glasshouse.webp" type="image/webp">
+    <img src="img/hero_glasshouse.png" width="1408" height="768" alt="" fetchpriority="high">
+  </picture>
+  <div class="fog" aria-hidden="true"></div>
+  <div class="hero-inner wrap">
+    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+    <div class="eyebrow">Plugins &middot; London</div>
+    <h1 class="title">Instruments grown,<br>not designed.</h1>
+    <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#catalog">See the catalog</a>
+      <a class="btn btn-ghost" href="#pure-ambience">Pure Ambience, out now</a>
     </div>
+  </div>
+</header>
+
+<section class="hero-plate" aria-label="Pure Ambience marks">
+  <div class="plate" role="img" aria-label="Pure Ambience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
     <div class="panel daylight-panel" style="--pw:715">
       <figure class="spec" style="--w:415">
         <figcaption>WORDMARK ON DAYLIGHT</figcaption>
@@ -274,16 +279,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
       </figure>
     </div>
   </div>
-  <div class="hero-copy wrap">
-    <div class="eyebrow">Plugins &middot; London</div>
-    <h1 class="title">Instruments grown,<br>not designed.</h1>
-    <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#catalog">See the catalog</a>
-      <a class="btn btn-ghost" href="#pure-ambience">Pure Ambience, out now</a>
-    </div>
-  </div>
-</header>
+</section>
 
 <main id="main">
 
