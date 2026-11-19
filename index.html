@@ -156,7 +156,7 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 
 /* hero: the brand sheet as a horizontal specimen plate */
 .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
-.hero-plate{padding-block:28px 0}
+.hero-plate{padding-block:12px}
 .hero-plate .daylight-panel{flex:1 1 auto; justify-content:space-around}
 .plate{position:relative; display:flex; margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px)); border:1px solid var(--line)}
 .plate::before,.plate::after{content:"+"; position:absolute; font:400 14px/1 var(--mono); color:var(--dim); z-index:2}
@@ -262,24 +262,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </header>
 
-<section class="hero-plate" aria-label="Pure Ambience marks">
-  <div class="plate" role="img" aria-label="Pure Ambience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
-    <div class="panel daylight-panel" style="--pw:715">
-      <figure class="spec" style="--w:415">
-        <figcaption>WORDMARK ON DAYLIGHT</figcaption>
-        <img src="img/spec-wordmark-daylight.png" width="415" height="71" alt="">
-      </figure>
-      <figure class="spec" style="--w:150;--iw:98">
-        <figcaption>MASTER MARK, INK</figcaption>
-        <img src="img/spec-master-mark-ink.png" width="98" height="105" alt="">
-      </figure>
-      <figure class="spec" style="--w:150;--iw:98">
-        <figcaption>SINGLE INK, MONO</figcaption>
-        <img src="img/spec-single-ink-mono.png" width="98" height="104" alt="">
-      </figure>
-    </div>
-  </div>
-</section>
+
 
 <main id="main">
 
@@ -344,12 +327,24 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<div class="mood mood-band" aria-hidden="true">
-  <picture>
-    <source type="image/webp" srcset="img/hero_glasshouse.webp">
-    <img src="img/hero_glasshouse.png" width="1408" height="768" loading="lazy" alt="">
-  </picture>
-</div>
+<section class="hero-plate" aria-label="Pure Ambience marks">
+  <div class="plate" role="img" aria-label="Pure Ambience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
+    <div class="panel daylight-panel" style="--pw:715">
+      <figure class="spec" style="--w:415">
+        <figcaption>WORDMARK ON DAYLIGHT</figcaption>
+        <img src="img/spec-wordmark-daylight.png" width="415" height="71" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>MASTER MARK, INK</figcaption>
+        <img src="img/spec-master-mark-ink.png" width="98" height="105" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>SINGLE INK, MONO</figcaption>
+        <img src="img/spec-single-ink-mono.png" width="98" height="104" alt="">
+      </figure>
+    </div>
+  </div>
+</section>
 <hr class="crack" aria-hidden="true">
 
 <section id="pure-ambience">
@@ -398,30 +393,6 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
       </figure>
     </div>
 
-    <h3 class="sub">In the DAW, uncropped</h3>
-    <div class="daw">
-      <figure>
-        <picture>
-          <source type="image/webp" srcset="img/daw-bass-600.webp 600w, img/daw-bass-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
-          <img src="img/daw-bass-1200.jpg" width="1200" height="1065" loading="lazy" alt="Pure Ambience plugin window in FL Studio on the Bass tab, with the Master strip along the bottom">
-        </picture>
-        <figcaption>Bass tab, straight out of FL Studio.</figcaption>
-      </figure>
-      <figure>
-        <picture>
-          <source type="image/webp" srcset="img/daw-melody-600.webp 600w, img/daw-melody-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
-          <img src="img/daw-melody-1200.jpg" width="1200" height="925" loading="lazy" alt="Pure Ambience on the Melody tab, open over FL Studio's playlist and channel rack">
-        </picture>
-        <figcaption>Melody tab, loaded from FL Studio&rsquo;s channel rack.</figcaption>
-      </figure>
-      <figure>
-        <picture>
-          <source type="image/webp" srcset="img/daw-melody-pianoroll-600.webp 600w, img/daw-melody-pianoroll-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
-          <img src="img/daw-melody-pianoroll-1200.jpg" width="1200" height="768" loading="lazy" alt="Pure Ambience on the Melody tab beside an FL Studio piano roll with notes on C5 and F sharp 5">
-        </picture>
-        <figcaption>Mid-session, next to the piano roll.</figcaption>
-      </figure>
-    </div>
     <p class="proof mono">Every screenshot in this gallery is the real plugin, not a render or a mock-up. The photographs elsewhere on this page are mood images, not the product.</p>
 
     <dl class="specs">
