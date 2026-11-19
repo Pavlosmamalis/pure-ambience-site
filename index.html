@@ -62,12 +62,13 @@ a{color:inherit}
 nav.top{position:sticky; top:0; z-index:30; background:rgba(20,22,25,.86); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px)}
 nav.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px}
 .wordmark{display:block; line-height:0}
-.wordmark img{height:22px; width:auto}
-@media (max-width:520px){.wordmark img{height:16px}}
+.wordmark img{height:30px; width:auto; max-width:none}
+@media (max-width:560px){.wordmark img{height:22px}}
+nav.top .wrap{flex-wrap:wrap; row-gap:4px; padding-block:6px}
 .navlinks{display:flex; gap:20px; font-size:.84rem; list-style:none; margin:0; padding:0}
 .navlinks a{text-decoration:none; color:var(--dim); padding:8px 0; display:inline-block}
 .navlinks a:hover{color:var(--text)}
-@media (max-width:520px){.navlinks{gap:14px; font-size:.78rem}}
+@media (max-width:560px){.navlinks{gap:12px; font-size:.76rem}}
 
 /* hero */
 .hero{position:relative; min-height:min(82vh,760px); display:flex; align-items:flex-end; background:var(--steel-deep); overflow:hidden}
@@ -152,6 +153,29 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 .daylight-text{font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(1.3rem,2.6vw,1.9rem); letter-spacing:.02em; color:#2b302d}
 @media (max-width:520px){.daylight-inner{flex-direction:column; gap:20px}}
 
+
+/* hero: the brand sheet as a horizontal specimen plate */
+.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.hero-plate{padding-top:28px}
+.plate{position:relative; display:flex; margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px)); border:1px solid var(--line)}
+.plate::before,.plate::after{content:"+"; position:absolute; font:400 14px/1 var(--mono); color:var(--dim); z-index:2}
+.plate::before{left:-5px; top:-8px} .plate::after{right:-5px; bottom:-8px}
+.panel{flex:var(--pw) 1 0; display:flex; align-items:flex-start; justify-content:space-around; gap:clamp(16px,3vw,48px); padding:clamp(22px,3vw,40px) clamp(18px,2.6vw,40px) clamp(28px,3.4vw,48px); min-width:0}
+.panel.ground{background:#0e100f}
+.panel.daylight-panel{background:#e6ece7}
+.spec{margin:0; flex:var(--w) 1 0; min-width:0; max-width:calc(var(--w) * 1px)}
+.spec figcaption{font:400 .68rem/1.3 var(--mono); letter-spacing:.06em; margin-bottom:14px; white-space:nowrap}
+.ground .spec figcaption{color:#9aa19c}
+.daylight-panel .spec figcaption{color:#3b403d}
+.spec img{width:100%; height:auto; max-width:calc(var(--iw, var(--w)) * 1px)}
+@media (max-width:1440px){ .plate{flex-direction:column} .panel{justify-content:flex-start} }
+@media (max-width:700px){
+  .panel{flex-wrap:wrap}
+  .spec{flex:0 1 auto; width:min(calc(var(--w) * 1px),100%)}
+}
+.hero-copy{padding-block:44px 64px}
+.hero-copy .title{font-family:var(--serif); font-weight:600; line-height:1.1; font-size:clamp(2.2rem,5.5vw,4rem); color:#f2f4f6}
+
 /* mood photography: atmosphere only, never the product, never captioned */
 .mood-band{position:relative; height:clamp(220px,42vw,460px); overflow:hidden; background:var(--steel-deep)}
 .mood-band.short{height:clamp(160px,26vw,300px)}
@@ -210,7 +234,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
 <nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="wordmark" href="#top"><img src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience, back to top"></a>
+    <a class="wordmark" href="#top"><img src="img/logo-lockup-horizontal.png" width="394" height="54" alt="Pure Ambience, back to top"></a>
     <ul class="navlinks">
       <li><a href="#catalog">Catalog</a></li>
       <li><a href="#pure-ambience">Pure Ambience</a></li>
@@ -219,14 +243,38 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </nav>
 
-<header class="hero" id="top">
-  <picture>
-    <source srcset="img/hero_glasshouse.webp" type="image/webp">
-    <img src="img/hero_glasshouse.png" width="1408" height="768" alt="" fetchpriority="high">
-  </picture>
-  <div class="fog" aria-hidden="true"></div>
-  <div class="hero-inner wrap">
-    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+<header class="hero-plate" id="top">
+  <div class="plate" role="img" aria-label="Pure Ambience brand sheet: the wordmark with its vine and crack underline, the horizontal and stacked lockups, and the thorned-star master mark, shown on dark ground and on daylight">
+    <div class="panel ground" style="--pw:1039">
+      <figure class="spec" style="--w:415">
+        <figcaption>WORDMARK ON GROUND</figcaption>
+        <img src="img/spec-wordmark-ground.png" width="415" height="71" alt="">
+      </figure>
+      <figure class="spec" style="--w:405">
+        <figcaption>HORIZONTAL LOCKUP</figcaption>
+        <img src="img/spec-horizontal-lockup.png" width="405" height="64" alt="">
+      </figure>
+      <figure class="spec" style="--w:219">
+        <figcaption>STACKED LOCKUP</figcaption>
+        <img src="img/spec-stacked-lockup.png" width="219" height="137" alt="">
+      </figure>
+    </div>
+    <div class="panel daylight-panel" style="--pw:715">
+      <figure class="spec" style="--w:415">
+        <figcaption>WORDMARK ON DAYLIGHT</figcaption>
+        <img src="img/spec-wordmark-daylight.png" width="415" height="71" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>MASTER MARK, INK</figcaption>
+        <img src="img/spec-master-mark-ink.png" width="98" height="105" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>SINGLE INK, MONO</figcaption>
+        <img src="img/spec-single-ink-mono.png" width="98" height="104" alt="">
+      </figure>
+    </div>
+  </div>
+  <div class="hero-copy wrap">
     <div class="eyebrow">Plugins &middot; London</div>
     <h1 class="title">Instruments grown,<br>not designed.</h1>
     <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
@@ -300,11 +348,11 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<div class="daylight" role="presentation">
-  <div class="wrap daylight-inner">
-    <img class="daylight-mark" src="img/logo-mark-ink.png" width="172" height="186" alt="">
-    <p class="daylight-text">Signal, overgrown.</p>
-  </div>
+<div class="mood mood-band" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="img/hero_glasshouse.webp">
+    <img src="img/hero_glasshouse.png" width="1408" height="768" loading="lazy" alt="">
+  </picture>
 </div>
 <hr class="crack" aria-hidden="true">
 
@@ -420,7 +468,6 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   <div class="wrap foot-row">
     <div class="foot-brand">
       <img class="foot-mark" src="img/logo-mark.png" width="172" height="186" alt="" aria-hidden="true">
-      <picture aria-hidden="true"><source type="image/webp" srcset="img/mood-jars-detail-330.webp"><img class="foot-jars" src="img/mood-jars-detail-330.jpg" width="330" height="270" loading="lazy" alt=""></picture>
       <div class="mono">PUREAMBIENCE &middot; LONDON</div>
     </div>
     <div class="foot-links">
