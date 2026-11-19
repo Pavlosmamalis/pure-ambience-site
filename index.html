@@ -7,6 +7,9 @@
 <meta name="description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
 <meta name="theme-color" content="#141619">
 <meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -58,8 +61,9 @@ a{color:inherit}
 /* nav */
 nav.top{position:sticky; top:0; z-index:30; background:rgba(20,22,25,.86); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px)}
 nav.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px}
-.wordmark{font-family:var(--serif); font-size:1.2rem; letter-spacing:.08em; font-weight:600; text-decoration:none}
-.wordmark span{color:var(--nature)}
+.wordmark{display:block; line-height:0}
+.wordmark img{height:22px; width:auto}
+@media (max-width:520px){.wordmark img{height:16px}}
 .navlinks{display:flex; gap:20px; font-size:.84rem; list-style:none; margin:0; padding:0}
 .navlinks a{text-decoration:none; color:var(--dim); padding:8px 0; display:inline-block}
 .navlinks a:hover{color:var(--text)}
@@ -67,8 +71,8 @@ nav.top .wrap{display:flex; align-items:center; justify-content:space-between; g
 
 /* hero */
 .hero{position:relative; min-height:min(82vh,760px); display:flex; align-items:flex-end; background:var(--steel-deep); overflow:hidden}
-.hero picture,.hero img{position:absolute; inset:0; width:100%; height:100%}
-.hero img{object-fit:cover; object-position:center 40%; filter:saturate(.85) contrast(1.05)}
+.hero > picture,.hero > picture img{position:absolute; inset:0; width:100%; height:100%}
+.hero > picture img{object-fit:cover; object-position:center 40%; filter:saturate(.85) contrast(1.05)}
 .hero::after{content:""; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(180deg, rgba(20,22,25,.1) 0%, rgba(20,22,25,.35) 45%, rgba(20,22,25,.96) 94%),
              linear-gradient(90deg, rgba(20,22,25,.6) 0%, transparent 45%)}
@@ -80,6 +84,7 @@ nav.top .wrap{display:flex; align-items:center; justify-content:space-between; g
     radial-gradient(circle at 63% 62%, rgba(228,232,236,.07) 0 2px, transparent 3px);
   background-size:180px 220px, 260px 190px, 210px 240px}
 .hero-inner{position:relative; z-index:2; padding-block:72px 56px; width:100%}
+.hero-mark{width:min(440px,78vw); height:auto; margin-bottom:22px; filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
 .eyebrow{font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--nature); margin-bottom:14px}
 h1.title{font-size:clamp(2.5rem,7vw,5rem); letter-spacing:-.01em; color:#f2f4f6}
 .tagline{max-width:600px; margin-top:16px; font-size:clamp(1rem,1.6vw,1.12rem); color:#c7ced5}
@@ -122,6 +127,9 @@ h2.section-title{font-size:clamp(1.8rem,3.4vw,2.5rem); max-width:680px}
 .gallery .gcard:last-child{grid-column:1 / -1}
 @media (max-width:760px){.gallery{grid-template-columns:1fr}}
 .gcard{margin:0; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:4px; overflow:hidden; background:var(--steel-deep); min-width:0}
+.gcard .win{aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:var(--steel-deep)}
+.gcard .win picture{display:block; height:100%}
+.gcard .win img{height:100%; width:auto; max-width:none}
 .gcard figcaption{padding:14px 16px 16px; color:var(--dim); font-size:.9rem}
 .gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent); margin-right:4px}
 .gcard strong{font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-right:6px}
@@ -134,6 +142,22 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 .product .thumb.proto img{object-position:center top}
 .product .thumb .tag{position:absolute; left:10px; bottom:10px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; background:rgba(11,13,15,.85); color:var(--text); border:1px solid var(--line); padding:5px 8px}
 .product .thumb{aspect-ratio:16/9}
+
+
+/* mood photography: atmosphere only, never the product, never captioned */
+.mood-band{position:relative; height:clamp(220px,42vw,460px); overflow:hidden; background:var(--steel-deep)}
+.mood-band.short{height:clamp(160px,26vw,300px)}
+.mood-band picture,.mood-band picture img{position:absolute; inset:0; width:100%; height:100%}
+.mood-band picture img{object-fit:cover; filter:saturate(.8) brightness(.72)}
+.mood-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,var(--bg) 0%,transparent 22%,transparent 78%,var(--bg) 100%)}
+.mood-band .emblem{position:absolute; z-index:2; left:50%; top:50%; transform:translate(-50%,-50%); width:clamp(70px,9vw,110px); height:auto; filter:drop-shadow(0 4px 18px rgba(0,0,0,.8))}
+.mood-bg{position:relative; overflow:hidden}
+.mood-bg .bgpic,.mood-bg .bgpic img{position:absolute; inset:0; width:100%; height:100%}
+.mood-bg .bgpic img{object-fit:cover; filter:saturate(.75) brightness(.38)}
+.mood-bg > .wrap{position:relative; z-index:1}
+.foot-brand{display:flex; align-items:center; gap:14px}
+.foot-mark{width:40px; height:auto}
+.foot-jars{width:64px; height:52px; object-fit:cover; border-radius:3px; opacity:.85; border:1px solid var(--line)}
 
 /* flagship detail */
 .shot-frame{margin-top:44px; border-radius:4px; overflow:hidden; border:1px solid var(--line); background:var(--steel-deep); box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
@@ -178,7 +202,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
 <nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="wordmark" href="#top" aria-label="PureAmbience, back to top">PURE<span>AMBIENCE</span></a>
+    <a class="wordmark" href="#top"><img src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience, back to top"></a>
     <ul class="navlinks">
       <li><a href="#catalog">Catalog</a></li>
       <li><a href="#pure-ambience">Pure Ambience</a></li>
@@ -194,7 +218,8 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </picture>
   <div class="fog" aria-hidden="true"></div>
   <div class="hero-inner wrap">
-    <div class="eyebrow">PureAmbience &middot; plugins &middot; London</div>
+    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+    <div class="eyebrow">Plugins &middot; London</div>
     <h1 class="title">Instruments grown,<br>not designed.</h1>
     <p class="tagline">Plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers, built by one person who makes this music. Real recorded nature, hands-on sound shaping.</p>
     <div class="cta-row">
@@ -267,6 +292,13 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
+<div class="mood mood-band" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="img/mood-corridor-800.webp 800w, img/mood-corridor-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-corridor-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+  </picture>
+  <img class="emblem" src="img/logo-mark.png" width="172" height="186" alt="">
+</div>
 <hr class="crack" aria-hidden="true">
 
 <section id="pure-ambience">
@@ -298,11 +330,13 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
         <figcaption><span class="num">03</span> <strong>Atmosphere</strong> Space and air: pads and drones that open a mix up rather than filling it.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--nature)">
-        <picture>
-          <source type="image/webp" srcset="img/card-nature-640.webp 640w, img/card-nature-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
-          <img src="img/card-nature-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Nature tab: Killer Whale field recording selected, with filter, distortion, gate pattern, grit and sample start and end controls above the Master strip">
-        </picture>
-        <figcaption><span class="num">04</span> <strong>Nature</strong> 31 real field recordings (mammals, birds, insects, amphibians, weather), all public-domain NPS sources, keytracked and playable like a sampler.</figcaption>
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/card-nature-window-610.webp">
+            <img src="img/card-nature-window-610.jpg" width="610" height="586" loading="lazy" alt="Pure Ambience Nature tab: Killer Whale field recording selected, with filter, distortion, gate pattern, grit and sample start and end controls above the Master strip">
+          </picture>
+        </div>
+        <figcaption><span class="num">04</span> <strong>Nature</strong> Real field recordings (mammals, birds, insects, amphibians, weather), all public-domain NPS sources, keytracked and playable like a sampler.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--master)">
         <picture>
@@ -337,7 +371,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
         <figcaption>Mid-session, next to the piano roll.</figcaption>
       </figure>
     </div>
-    <p class="proof mono">Every screenshot on this page is the real plugin. Nothing here is a render or a mock-up.</p>
+    <p class="proof mono">Every screenshot in this gallery is the real plugin, not a render or a mock-up. The photographs elsewhere on this page are mood images, not the product.</p>
 
     <dl class="specs">
       <div><dt>Filters</dt><dd>Switchable filter type (Low / Band / High-pass) per engine</dd></div>
@@ -350,7 +384,18 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<section class="buy concrete" id="buy">
+<div class="mood mood-band short" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="img/mood-window-800.webp 800w, img/mood-window-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-window-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+  </picture>
+</div>
+
+<section class="buy mood-bg" id="buy">
+  <picture class="bgpic" aria-hidden="true">
+    <source type="image/webp" srcset="img/mood-scope-jars-800.webp 800w, img/mood-scope-jars-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-scope-jars-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+  </picture>
   <div class="wrap">
     <div class="label">Pure Ambience</div>
     <h2>Pure Ambience, on Gumroad.</h2>
@@ -366,7 +411,11 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
 <footer>
   <div class="wrap foot-row">
-    <div class="mono">PUREAMBIENCE &middot; LONDON</div>
+    <div class="foot-brand">
+      <img class="foot-mark" src="img/logo-mark.png" width="172" height="186" alt="" aria-hidden="true">
+      <picture aria-hidden="true"><source type="image/webp" srcset="img/mood-jars-detail-330.webp"><img class="foot-jars" src="img/mood-jars-detail-330.jpg" width="330" height="270" loading="lazy" alt=""></picture>
+      <div class="mono">PUREAMBIENCE &middot; LONDON</div>
+    </div>
     <div class="foot-links">
       <a href="https://vls7.gumroad.com/l/pure-ambience">Gumroad</a>
       <a href="mailto:pure.ambience.official@outlook.com">pure.ambience.official@outlook.com</a>
