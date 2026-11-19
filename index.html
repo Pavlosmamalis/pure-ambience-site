@@ -116,6 +116,25 @@ h2.section-title{font-size:clamp(1.8rem,3.4vw,2.5rem); max-width:680px}
 .product .foot{margin-top:auto; padding-top:10px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
 .price{font-family:var(--mono); font-size:1rem; color:var(--text)}
 
+
+/* gallery */
+.gallery{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:44px}
+.gallery .gcard:last-child{grid-column:1 / -1}
+@media (max-width:760px){.gallery{grid-template-columns:1fr}}
+.gcard{margin:0; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:4px; overflow:hidden; background:var(--steel-deep); min-width:0}
+.gcard figcaption{padding:14px 16px 16px; color:var(--dim); font-size:.9rem}
+.gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent); margin-right:4px}
+.gcard strong{font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-right:6px}
+h3.sub{font-size:1.5rem; margin-top:56px}
+.daw{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; align-items:start}
+@media (max-width:760px){.daw{grid-template-columns:1fr}}
+.daw figure{margin:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--steel-deep)}
+.daw figcaption{padding:10px 14px; font-size:.82rem; color:var(--dim)}
+.proof{font-size:.74rem; color:var(--dim); margin-top:14px}
+.product .thumb.proto img{object-position:center top}
+.product .thumb .tag{position:absolute; left:10px; bottom:10px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; background:rgba(11,13,15,.85); color:var(--text); border:1px solid var(--line); padding:5px 8px}
+.product .thumb{aspect-ratio:16/9}
+
 /* flagship detail */
 .shot-frame{margin-top:44px; border-radius:4px; overflow:hidden; border:1px solid var(--line); background:var(--steel-deep); box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
 .cap{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-top:12px; flex-wrap:wrap}
@@ -198,8 +217,8 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
       <li class="product" style="--accent:var(--nature)">
         <div class="thumb">
           <picture>
-            <source srcset="img/gui_master.webp" type="image/webp">
-            <img src="img/gui_master.png" width="2040" height="1593" loading="lazy" alt="Pure Ambience in FL Studio, Master tab: EQ, compressor, width and drive knobs above a live waveform and spectrum display">
+            <source type="image/webp" srcset="img/card-bass-640.webp 640w, img/card-bass-1280.webp 1280w" sizes="(max-width:700px) 100vw, 360px">
+            <img src="img/card-bass-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience, Bass tab: oscillator, filter, envelope and Twist knobs in the plugin window">
           </picture>
         </div>
         <div class="body">
@@ -217,7 +236,13 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
       <!-- ENTRY: in development (no price, no date, no buy button until it is built, verified and approved) -->
       <li class="product" style="--accent:var(--bass)">
-        <div class="thumb empty"><span>No screenshot until it&rsquo;s built</span></div>
+        <div class="thumb proto">
+          <picture>
+            <source type="image/webp" srcset="img/rolling-gate-prototype-600.webp 600w, img/rolling-gate-prototype-1200.webp 1200w" sizes="(max-width:700px) 100vw, 360px">
+            <img src="img/rolling-gate-prototype-1200.jpg" width="1200" height="1246" loading="lazy" alt="Rolling Gate browser prototype: a 16-step gate grid with per-step level bars, retrigger and pitch rows, and Gate, Tone, Space, Motion and Journey tabs">
+          </picture>
+          <span class="tag">Browser prototype &middot; in development</span>
+        </div>
         <div class="body">
           <span class="status soon">Coming soon</span>
           <h3>Rolling Gate</h3>
@@ -228,7 +253,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
       <!-- ENTRY: in development -->
       <li class="product" style="--accent:var(--atmos)">
-        <div class="thumb empty"><span>No screenshot until it&rsquo;s built</span></div>
+        <div class="thumb empty"><span>Nothing to show yet</span></div>
         <div class="body">
           <span class="status soon">Coming soon</span>
           <h3>Pure Ambience: Nature Grains</h3>
@@ -250,50 +275,69 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
     <h2 class="section-title">Four engines. One signal. Built for the dark side of psy.</h2>
     <p class="lede">Pure Ambience is a four-engine synthesizer plugin (VST3/AU, Mac &amp; Windows) built around a simple idea: most synths sound clean because they're trying to. Pure Ambience is built to sound alive.</p>
 
-    <div class="shot-frame">
-      <picture>
-        <source srcset="img/gui_master.webp" type="image/webp">
-        <img src="img/gui_master.png" width="2040" height="1593" loading="lazy" alt="Pure Ambience in FL Studio, Master tab: EQ, compressor, width and drive knobs above a live waveform and spectrum display">
-      </picture>
-    </div>
-    <div class="cap">
-      <div class="mono">MASTER &middot; EQ / COMP / WIDTH / DRIVE</div>
-      <p>A real capture of the plugin running in FL Studio. Every screenshot here is the actual software.</p>
+    <div class="gallery" aria-label="Pure Ambience, one card per engine">
+      <figure class="gcard" style="--accent:var(--bass)">
+        <picture>
+          <source type="image/webp" srcset="img/card-bass-640.webp 640w, img/card-bass-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/card-bass-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Bass tab: waveform, three oscillators including a sub, AM mod and sub-octave switches, filter, envelope, LFO and the Twist knob">
+        </picture>
+        <figcaption><span class="num">01</span> <strong>Bass</strong> Twisted, swampy low end. Twist, the one-knob drive and filter growl control on every engine, is built from a real sound-design trick, not a stock saturator.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--melody)">
+        <picture>
+          <source type="image/webp" srcset="img/card-melody-640.webp 640w, img/card-melody-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/card-melody-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Melody tab: Crystal Bell character preset, shimmer and delay switches, reverb, brightness, envelope, unison and the Twist knob">
+        </picture>
+        <figcaption><span class="num">02</span> <strong>Melody</strong> 20 character presets (Crystal Bell, Koto, Warm Vox, Marimba, Sitar, and more), each with its own designed envelope.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--atmos)">
+        <picture>
+          <source type="image/webp" srcset="img/card-atmosphere-640.webp 640w, img/card-atmosphere-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/card-atmosphere-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Atmosphere tab: chord mode set to Major, detune, reverb, shimmer switch, filter, envelope and the Twist knob">
+        </picture>
+        <figcaption><span class="num">03</span> <strong>Atmosphere</strong> Space and air: pads and drones that open a mix up rather than filling it.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--nature)">
+        <picture>
+          <source type="image/webp" srcset="img/card-nature-640.webp 640w, img/card-nature-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/card-nature-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Nature tab: Killer Whale field recording selected, with filter, distortion, gate pattern, grit and sample start and end controls above the Master strip">
+        </picture>
+        <figcaption><span class="num">04</span> <strong>Nature</strong> 31 real field recordings (mammals, birds, insects, amphibians, weather), all public-domain NPS sources, keytracked and playable like a sampler.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--master)">
+        <picture>
+          <source type="image/webp" srcset="img/card-master-640.webp 640w, img/card-master-1280.webp 1280w" sizes="(max-width:760px) 100vw, 1080px">
+          <img src="img/card-master-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Master tab: EQ, compressor, width, master and drive knobs above a live waveform and spectrum display">
+        </picture>
+        <figcaption><span class="num">05</span> <strong>Master</strong> One master chain with Master Drive saturation, for extra headroom on hard-hitting, high-BPM material.</figcaption>
+      </figure>
     </div>
 
-    <div class="pair">
+    <h3 class="sub">In the DAW, uncropped</h3>
+    <div class="daw">
       <figure>
-        <img src="img/gui_p1.png" width="480" height="311" loading="lazy" alt="Pure Ambience open as a plugin window inside FL Studio">
-        <figcaption>Running in FL Studio, loaded like any other instrument plugin.</figcaption>
+        <picture>
+          <source type="image/webp" srcset="img/daw-bass-600.webp 600w, img/daw-bass-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
+          <img src="img/daw-bass-1200.jpg" width="1200" height="1065" loading="lazy" alt="Pure Ambience plugin window in FL Studio on the Bass tab, with the Master strip along the bottom">
+        </picture>
+        <figcaption>Bass tab, straight out of FL Studio.</figcaption>
       </figure>
       <figure>
-        <img src="img/gui_p5.png" width="480" height="311" loading="lazy" alt="Pure Ambience open mid-session in FL Studio with its waveform and spectrum display moving">
-        <figcaption>Mid-session. What you see here is what loads when you open it.</figcaption>
+        <picture>
+          <source type="image/webp" srcset="img/daw-melody-600.webp 600w, img/daw-melody-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
+          <img src="img/daw-melody-1200.jpg" width="1200" height="925" loading="lazy" alt="Pure Ambience on the Melody tab, open over FL Studio's playlist and channel rack">
+        </picture>
+        <figcaption>Melody tab, loaded from FL Studio&rsquo;s channel rack.</figcaption>
+      </figure>
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="img/daw-melody-pianoroll-600.webp 600w, img/daw-melody-pianoroll-1200.webp 1200w" sizes="(max-width:760px) 100vw, 360px">
+          <img src="img/daw-melody-pianoroll-1200.jpg" width="1200" height="768" loading="lazy" alt="Pure Ambience on the Melody tab beside an FL Studio piano roll with notes on C5 and F sharp 5">
+        </picture>
+        <figcaption>Mid-session, next to the piano roll.</figcaption>
       </figure>
     </div>
-
-    <div class="engines" aria-label="The four engines">
-      <div class="engine" style="--accent:var(--bass)">
-        <div class="num">01</div>
-        <h3>Bass</h3>
-        <p>Twisted, swampy low end. Twist, the one-knob drive and filter growl control on every engine, is built from a real sound-design trick, not a stock saturator.</p>
-      </div>
-      <div class="engine" style="--accent:var(--melody)">
-        <div class="num">02</div>
-        <h3>Melody</h3>
-        <p>20 character presets (Crystal Bell, Koto, Warm Vox, Marimba, Sitar, and more), each with its own designed envelope.</p>
-      </div>
-      <div class="engine" style="--accent:var(--atmos)">
-        <div class="num">03</div>
-        <h3>Atmosphere</h3>
-        <p>Space and air: pads and drones that open a mix up rather than filling it.</p>
-      </div>
-      <div class="engine" style="--accent:var(--nature)">
-        <div class="num">04</div>
-        <h3>Nature</h3>
-        <p>31 real field recordings (mammals, birds, insects, amphibians, weather), all public-domain NPS sources, keytracked and playable like a sampler.</p>
-      </div>
-    </div>
+    <p class="proof mono">Every screenshot on this page is the real plugin. Nothing here is a render or a mock-up.</p>
 
     <dl class="specs">
       <div><dt>Filters</dt><dd>Switchable filter type (Low / Band / High-pass) per engine</dd></div>
