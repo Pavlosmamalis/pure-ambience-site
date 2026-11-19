@@ -144,6 +144,14 @@ h3.sub{font-size:1.5rem; margin-top:56px}
 .product .thumb{aspect-ratio:16/9}
 
 
+
+/* daylight banner: master mark on the logo sheet's pale ground */
+.daylight{background:#e6ece7; color:#1a1d1b; border-block:1px solid rgba(26,29,27,.12)}
+.daylight-inner{display:flex; align-items:center; justify-content:center; gap:clamp(28px,6vw,80px); min-height:clamp(220px,30vw,340px); padding-block:48px}
+.daylight-mark{width:clamp(84px,10vw,120px); height:auto}
+.daylight-text{font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(1.3rem,2.6vw,1.9rem); letter-spacing:.02em; color:#2b302d}
+@media (max-width:520px){.daylight-inner{flex-direction:column; gap:20px}}
+
 /* mood photography: atmosphere only, never the product, never captioned */
 .mood-band{position:relative; height:clamp(220px,42vw,460px); overflow:hidden; background:var(--steel-deep)}
 .mood-band.short{height:clamp(160px,26vw,300px)}
@@ -221,7 +229,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
     <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
     <div class="eyebrow">Plugins &middot; London</div>
     <h1 class="title">Instruments grown,<br>not designed.</h1>
-    <p class="tagline">Plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers, built by one person who makes this music. Real recorded nature, hands-on sound shaping.</p>
+    <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#catalog">See the catalog</a>
       <a class="btn btn-ghost" href="#pure-ambience">Pure Ambience, out now</a>
@@ -292,12 +300,11 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<div class="mood mood-band" aria-hidden="true">
-  <picture>
-    <source type="image/webp" srcset="img/mood-corridor-800.webp 800w, img/mood-corridor-1380.webp 1380w" sizes="100vw">
-    <img src="img/mood-corridor-1380.jpg" width="1380" height="752" loading="lazy" alt="">
-  </picture>
-  <img class="emblem" src="img/logo-mark.png" width="172" height="186" alt="">
+<div class="daylight" role="presentation">
+  <div class="wrap daylight-inner">
+    <img class="daylight-mark" src="img/logo-mark-ink.png" width="172" height="186" alt="">
+    <p class="daylight-text">Signal, overgrown.</p>
+  </div>
 </div>
 <hr class="crack" aria-hidden="true">
 
@@ -386,8 +393,8 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
 <div class="mood mood-band short" aria-hidden="true">
   <picture>
-    <source type="image/webp" srcset="img/mood-window-800.webp 800w, img/mood-window-1380.webp 1380w" sizes="100vw">
-    <img src="img/mood-window-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+    <source type="image/webp" srcset="img/mood-corridor-800.webp 800w, img/mood-corridor-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-corridor-1380.jpg" width="1380" height="752" loading="lazy" alt="">
   </picture>
 </div>
 
