@@ -4,9 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PureAmbience: instruments and effects</title>
-<meta name="description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
+<meta name="description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience, a four-engine synthesizer with a Nature engine of field recordings, is out now.">
+<link rel="canonical" href="https://pureambienceaudio.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PureAmbience">
+<meta property="og:url" content="https://pureambienceaudio.com/">
+<meta property="og:title" content="PureAmbience: instruments grown, not designed">
+<meta property="og:description" content="Pure Ambience: a four-engine synthesizer (Bass, Melody, Atmosphere, Nature) for psytrance, dark-psy and dark-ambient producers. VST3 and AU, macOS and Windows.">
+<meta property="og:image" content="https://pureambienceaudio.com/img/og-image-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PureAmbience wordmark over a moss-covered concrete glasshouse (mood image)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PureAmbience: instruments grown, not designed">
+<meta name="twitter:description" content="Pure Ambience: a four-engine synthesizer for psytrance, dark-psy and dark-ambient producers.">
+<meta name="twitter:image" content="https://pureambienceaudio.com/img/og-image-1200x630.jpg">
 <meta name="theme-color" content="#141619">
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
 <link rel="apple-touch-icon" href="img/favicon-180.png">
@@ -128,9 +141,7 @@ h2.section-title{font-size:clamp(1.8rem,3.4vw,2.5rem); max-width:680px}
 .gallery .gcard:last-child{grid-column:1 / -1}
 @media (max-width:760px){.gallery{grid-template-columns:1fr}}
 .gcard{margin:0; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:4px; overflow:hidden; background:var(--steel-deep); min-width:0}
-.gcard .win{aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:var(--steel-deep)}
-.gcard .win picture{display:block; height:100%}
-.gcard .win img{height:100%; width:auto; max-width:none}
+@media (min-width:761px){.gallery .gcard:last-child{display:grid; grid-template-columns:1fr 1fr; align-items:center}.gallery .gcard:last-child figcaption{padding:24px 28px; font-size:1rem}}
 .gcard figcaption{padding:14px 16px 16px; color:var(--dim); font-size:.9rem}
 .gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent); margin-right:4px}
 .gcard strong{font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-right:6px}
@@ -235,7 +246,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 
 <nav class="top" aria-label="Main">
   <div class="wrap">
-    <a class="wordmark" href="#top"><img src="img/logo-lockup-horizontal.png" width="394" height="54" alt="Pure Ambience, back to top"></a>
+    <a class="wordmark" href="#top"><img src="img/logo-lockup-horizontal.png" width="394" height="54" alt="PureAmbience, back to top"></a>
     <ul class="navlinks">
       <li><a href="#catalog">Catalog</a></li>
       <li><a href="#pure-ambience">Pure Ambience</a></li>
@@ -251,7 +262,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   </picture>
   <div class="fog" aria-hidden="true"></div>
   <div class="hero-inner wrap">
-    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="PureAmbience">
     <div class="eyebrow">Plugins</div>
     <h1 class="title">Instruments grown,<br>not designed.</h1>
     <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
@@ -277,17 +288,17 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
       <li class="product" style="--accent:var(--nature)">
         <div class="thumb">
           <picture>
-            <source type="image/webp" srcset="img/card-bass-640.webp 640w, img/card-bass-1280.webp 1280w" sizes="(max-width:700px) 100vw, 360px">
-            <img src="img/card-bass-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience, Bass tab: oscillator, filter, envelope and Twist knobs in the plugin window">
-          </picture>
+          <source type="image/webp" srcset="img/ui-bass-600.webp 600w, img/ui-bass-1040.webp 1040w" sizes="(max-width:700px) 100vw, 360px">
+          <img src="img/ui-bass-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Bass tab, captured from the plugin editor">
+        </picture>
         </div>
         <div class="body">
           <span class="status live">Out now</span>
           <h3>Pure Ambience</h3>
-          <div class="kind">Synth &middot; VST3 / AU &middot; macOS &amp; Windows</div>
+          <div class="kind">Synth &middot; VST3 + AU on macOS &middot; VST3 on Windows</div>
           <p class="desc">Four engines. One signal. Built for the dark side of psy.</p>
           <div class="foot">
-            <span class="price">&pound;19.99</span>
+            <span class="price">&pound;11.99</span>
             <a class="btn btn-primary" href="https://vls7.gumroad.com/l/pure-ambience" data-gumroad-overlay-checkout="true">Buy on Gumroad</a>
             <a class="btn btn-ghost" href="#pure-ambience">Details</a>
           </div>
@@ -322,13 +333,12 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
         </div>
       </li>
 
-      <!-- To add a product: copy one <li class="product"> block above, set --accent, status, name and line. -->
     </ul>
   </div>
 </section>
 
-<section class="hero-plate" aria-label="Pure Ambience marks">
-  <div class="plate" role="img" aria-label="Pure Ambience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
+<section class="hero-plate" aria-label="PureAmbience brand marks">
+  <div class="plate" role="img" aria-label="PureAmbience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
     <div class="panel daylight-panel" style="--pw:715">
       <figure class="spec" style="--w:415">
         <figcaption>WORDMARK ON DAYLIGHT</figcaption>
@@ -351,57 +361,56 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <div class="label">Out now &middot; Pure Ambience</div>
     <h2 class="section-title">Four engines. One signal. Built for the dark side of psy.</h2>
-    <p class="lede">Pure Ambience is a four-engine synthesizer plugin (VST3/AU, Mac &amp; Windows) built around a simple idea: most synths sound clean because they're trying to. Pure Ambience is built to sound alive.</p>
+    <p class="lede">Pure Ambience is a four-engine synthesizer plugin (VST3 + AU on macOS, VST3 on Windows) built around a simple idea: most synths sound clean because they're trying to. Pure Ambience is built to sound alive.</p>
 
     <div class="gallery" aria-label="Pure Ambience, one card per engine">
       <figure class="gcard" style="--accent:var(--bass)">
         <picture>
-          <source type="image/webp" srcset="img/card-bass-640.webp 640w, img/card-bass-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
-          <img src="img/card-bass-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Bass tab: waveform, three oscillators including a sub, AM mod and sub-octave switches, filter, envelope, LFO and the Twist knob">
+          <source type="image/webp" srcset="img/ui-bass-600.webp 600w, img/ui-bass-1040.webp 1040w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/ui-bass-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Bass tab, captured from the plugin editor: waveform cards, live scope, spectrum with filter curve and envelope screens above oscillator, filter, envelope, voice and output knobs, with the Twist knob">
         </picture>
         <figcaption><span class="num">01</span> <strong>Bass</strong> Twisted, swampy low end. Twist, the one-knob drive and filter growl control on every engine, is built from a real sound-design trick, not a stock saturator.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--melody)">
         <picture>
-          <source type="image/webp" srcset="img/card-melody-640.webp 640w, img/card-melody-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
-          <img src="img/card-melody-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Melody tab: Crystal Bell character preset, shimmer and delay switches, reverb, brightness, envelope, unison and the Twist knob">
+          <source type="image/webp" srcset="img/ui-melody-600.webp 600w, img/ui-melody-1040.webp 1040w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/ui-melody-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Melody tab, captured from the plugin editor: a strip of character presets, live scope, bell partials, envelope and filter screens above the character, envelope, voice and modulation knobs">
         </picture>
-        <figcaption><span class="num">02</span> <strong>Melody</strong> 20 character presets (Crystal Bell, Koto, Warm Vox, Marimba, Sitar, and more), each with its own designed envelope.</figcaption>
+        <figcaption><span class="num">02</span> <strong>Melody</strong> 31 character presets, from plucks and leads (Acid Pluck, Rust Lead) through instruments (Koto, Sitar, Marimba) to bells and bars (Crystal Bell, Temple Bell, Iron Bar), each with its own envelope.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--atmos)">
         <picture>
-          <source type="image/webp" srcset="img/card-atmosphere-640.webp 640w, img/card-atmosphere-1280.webp 1280w" sizes="(max-width:760px) 100vw, 540px">
-          <img src="img/card-atmosphere-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Atmosphere tab: chord mode set to Major, detune, reverb, shimmer switch, filter, envelope and the Twist knob">
+          <source type="image/webp" srcset="img/ui-atmosphere-600.webp 600w, img/ui-atmosphere-1040.webp 1040w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/ui-atmosphere-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Atmosphere tab, captured from the plugin editor: source and chord-mode strips, chord keyboard screen, and the Wild Bed section below the filter, envelope, movement and output knobs">
         </picture>
-        <figcaption><span class="num">03</span> <strong>Atmosphere</strong> Space and air: pads and drones that open a mix up rather than filling it.</figcaption>
+        <figcaption><span class="num">03</span> <strong>Atmosphere</strong> Slow chords with the weather moving underneath: play one key and get a chord, with sixteen chord modes, four voicings, and a Wild Bed that lays a Nature recording under it.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--nature)">
-        <div class="win">
-          <picture>
-            <source type="image/webp" srcset="img/card-nature-window-610.webp">
-            <img src="img/card-nature-window-610.jpg" width="610" height="586" loading="lazy" alt="Pure Ambience Nature tab: Killer Whale field recording selected, with filter, distortion, gate pattern, grit and sample start and end controls above the Master strip">
-          </picture>
-        </div>
-        <figcaption><span class="num">04</span> <strong>Nature</strong> Real field recordings (mammals, birds, insects, amphibians, weather), all public-domain NPS sources, keytracked and playable like a sampler.</figcaption>
+        <picture>
+          <source type="image/webp" srcset="img/ui-nature-600.webp 600w, img/ui-nature-1040.webp 1040w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/ui-nature-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Nature tab, captured from the plugin editor: a strip of 50 nature sounds, category browser, waveform with start and end handles, gate pattern screen, and tone, envelope and rhythm knobs">
+        </picture>
+        <figcaption><span class="num">04</span> <strong>Nature</strong> Fifty sounds from the wild: birds, mammals, frogs, insects, rain, thunder, running water and fire. Most are public-domain U.S. National Park Service recordings. Keytracked from C4 and played like a sampler, with a gate, pan drift and grit.</figcaption>
       </figure>
       <figure class="gcard" style="--accent:var(--master)">
         <picture>
-          <source type="image/webp" srcset="img/card-master-640.webp 640w, img/card-master-1280.webp 1280w" sizes="(max-width:760px) 100vw, 1080px">
-          <img src="img/card-master-1280.jpg" width="1280" height="720" loading="lazy" alt="Pure Ambience Master tab: EQ, compressor, width, master and drive knobs above a live waveform and spectrum display">
+          <source type="image/webp" srcset="img/ui-master-600.webp 600w, img/ui-master-1040.webp 1040w" sizes="(max-width:760px) 100vw, 540px">
+          <img src="img/ui-master-1040.jpg" width="1040" height="952" loading="lazy" alt="Pure Ambience Master tab, captured from the plugin editor: spectrum, EQ curve and compressor screens, output meters, stereo field and output scope, above the EQ, compressor and output knobs">
         </picture>
-        <figcaption><span class="num">05</span> <strong>Master</strong> One master chain with Master Drive saturation, for extra headroom on hard-hitting, high-BPM material.</figcaption>
+        <figcaption><span class="num">05</span> <strong>Master</strong> Everything passes through Master: three-band EQ, compressor, stereo width and Drive, with a live spectrum, meters, stereo field and output scope.</figcaption>
       </figure>
     </div>
 
-    <p class="proof mono">Every screenshot in this gallery is the real plugin, not a render or a mock-up. The photographs elsewhere on this page are mood images, not the product.</p>
+    <p class="proof mono">Every image in this gallery is the real plugin editor, captured from a build of the plugin itself, not a mock-up. The photographs elsewhere on this page are mood images, not the product.</p>
 
     <dl class="specs">
       <div><dt>Filters</dt><dd>Switchable filter type (Low / Band / High-pass) per engine</dd></div>
       <div><dt>Randomize</dt><dd>One-click Randomize per engine for instant sound-design starting points</dd></div>
       <div><dt>A/B compare</dt><dd>Store and recall two full patches on the fly while you work</dd></div>
-      <div><dt>Master Drive</dt><dd>Saturation stage for extra headroom on hard-hitting, high-BPM material</dd></div>
-      <div><dt>Formats</dt><dd>VST3 + AU &middot; macOS &amp; Windows &middot; FL Studio, Ableton Live, Logic, and other major DAWs</dd></div>
-      <div><dt>Requires</dt><dd>macOS 11+ (Apple Silicon or Intel) or Windows 10/11, 64-bit</dd></div>
+      <div><dt>Master Drive</dt><dd>A saturation stage on the Master tab, for hard, fast material</dd></div>
+      <div><dt>Formats</dt><dd>macOS: VST3 + AU &middot; Windows: VST3 (64-bit)</dd></div>
+      <div><dt>Requires</dt><dd>macOS 26.5 or later (Apple Silicon or Intel). Windows needs the Microsoft Visual C++ runtime, which most PCs already have.</dd></div>
+      <div><dt>Tested in</dt><dd>FL Studio (VST3) on macOS. The Windows build is built and checked automatically, but we have not played it on a Windows machine yet. Other hosts are untested so far.</dd></div>
     </dl>
   </div>
 </section>
@@ -421,7 +430,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
   <div class="wrap">
     <div class="label">Pure Ambience</div>
     <h2>Pure Ambience, on Gumroad.</h2>
-    <div class="price">&pound;19.99 &middot; VST3 + AU &middot; macOS &amp; Windows &middot; instant download</div>
+    <div class="price">&pound;11.99 &middot; VST3 + AU (macOS) &middot; VST3 (Windows) &middot; instant download</div>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://vls7.gumroad.com/l/pure-ambience" data-gumroad-overlay-checkout="true">Buy on Gumroad &rarr;</a>
     </div>
@@ -439,6 +448,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
     </div>
     <div class="foot-links">
       <a href="https://vls7.gumroad.com/l/pure-ambience">Gumroad</a>
+      <a href="https://www.instagram.com/pureambience.plugins/" rel="noopener">Instagram @pureambience.plugins</a>
       <a href="mailto:pure.ambience.official@outlook.com">pure.ambience.official@outlook.com</a>
     </div>
   </div>
