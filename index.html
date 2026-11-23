@@ -256,6 +256,11 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 .arts-grid img{width:100%; height:100%; object-fit:cover; filter:saturate(.85) brightness(.85)}
 .arts-grid figcaption{position:absolute; left:12px; bottom:10px; font:500 .66rem/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:#cfd6cc; text-shadow:0 1px 6px #000}
 .arts-grid .tall{grid-row:span 2}
+.insp-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px}
+.insp-row figure{margin:0; position:relative; overflow:hidden; background:var(--steel-deep); border:1px solid var(--line)}
+.insp-row img{width:100%; height:auto; filter:saturate(.9) brightness(.9)}
+.insp-row figcaption{position:absolute; left:12px; bottom:10px; font:500 .66rem/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:#cfd6cc; text-shadow:0 1px 6px #000}
+@media (max-width:760px){.insp-row{grid-template-columns:1fr}}
 .arts-grid .marks{grid-column:1 / -1; display:flex; flex-wrap:wrap; gap:28px; align-items:center; justify-content:space-around; padding:30px 20px; background:#e6ece7; border:0}
 .arts-grid .marks img{width:auto; height:auto; max-height:84px; filter:none}
 .arts-grid .marks figcaption{position:static; width:100%; text-align:center; color:#3a3d3a; text-shadow:none}
@@ -325,7 +330,7 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
 <section class="arts" id="arts">
   <div class="wrap">
     <div class="label">Graphic arts</div>
-    <h2>The look we build from.</h2>
+    <h2>Inspirations</h2>
     <div class="arts-grid">
       <figure class="tall">
         <picture><source type="image/webp" srcset="img/hero_glasshouse.webp"><img src="img/hero_glasshouse.png" width="1408" height="768" loading="lazy" alt="An overgrown brutalist glasshouse in mist, moss glowing faintly"></picture>
@@ -344,6 +349,20 @@ footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
         <img src="img/spec-master-mark-ink.png" width="98" height="105" loading="lazy" alt="The thorned-star master mark in ink">
         <img src="img/spec-single-ink-mono.png" width="98" height="104" loading="lazy" alt="The master mark in single-ink mono">
         <figcaption>Wordmark and master mark</figcaption>
+      </figure>
+    </div>
+    <div class="insp-row">
+      <figure >
+        <picture><source type="image/webp" srcset="img/insp-glass-sigil.webp"><img src="img/insp-glass-sigil.jpg" width="900" height="1499" loading="lazy" alt="A thorned sigil in cracked glass, rain on the pane, a green screen glowing in the ferns beyond"></picture>
+        <figcaption>The glass</figcaption>
+      </figure>
+      <figure >
+        <picture><source type="image/webp" srcset="img/insp-bench-window.webp"><img src="img/insp-bench-window.jpg" width="900" height="1499" loading="lazy" alt="An old oscilloscope on a mossy sill beside jars and dried stems, sigils frosting the window"></picture>
+        <figcaption>The sill</figcaption>
+      </figure>
+      <figure >
+        <picture><source type="image/webp" srcset="img/insp-garage-door.webp"><img src="img/insp-garage-door.jpg" width="900" height="1499" loading="lazy" alt="A rusted roller door half open on a flooded concrete floor, a glasshouse in the mist behind it"></picture>
+        <figcaption>The door</figcaption>
       </figure>
     </div>
   </div>
