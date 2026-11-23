@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PureAmbience: the catalog</title>
+<meta name="description" content="PureAmbience makes plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers. Pure Ambience is out now; Rolling Gate and Nature Grains are in development.">
+<meta name="theme-color" content="#141619">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="image" href="img/hero_glasshouse.webp" type="image/webp">
+<style>
+/* Palette: the plugin's own Source/LookAndFeel.h values (brand guide section 5:
+   the plugin is the master palette; the site follows it). */
+:root{
+  --bg:#141619; --panel:#12161a; --steel:#b8c2cc; --steel-dark:#22252a; --steel-deep:#0b0d0f;
+  --moss-edge:#3b5241;
+  --bass:#c84b59; --melody:#5cc8d7; --atmos:#967bb6; --nature:#4e9f76; --master:#c9933f;
+  --text:#e4e8ec; --dim:#8a949e;
+  --line:rgba(184,194,204,.14);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.6; -webkit-font-smoothing:antialiased}
+img{max-width:100%; height:auto; display:block}
+h1,h2,h3{font-family:var(--serif); font-weight:600; text-wrap:balance; margin:0; line-height:1.15}
+p{margin:0}
+a{color:inherit}
+.mono{font-family:var(--mono)}
+.wrap{max-width:1120px; margin:0 auto; padding-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px))}
+.skip{position:absolute; left:-999px; top:8px; background:var(--text); color:var(--bg); padding:8px 12px; z-index:50}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--melody); outline-offset:3px}
+
+/* film grain over everything, very light */
+.grain{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:40; opacity:.06; mix-blend-mode:overlay}
+
+/* concrete: procedural, not a flat fill */
+.concrete{
+  background-color:var(--panel);
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(59,82,65,.18), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(11,13,15,.7), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .72 0 0 0 0 .76 0 0 0 0 .8 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23c)'/%3E%3C/svg%3E");
+}
+
+/* frost-crack hairline divider (drawn in CSS/SVG, no photo) */
+.crack{height:22px; border:0; margin:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='22' preserveAspectRatio='none'%3E%3Cpath d='M0 11 L70 10 L96 4 L118 12 L190 11 L214 17 L236 9 L330 11 L352 3 M352 3 L370 12 L470 10 L492 18 L510 11 L600 11 M96 4 L104 0 M214 17 L222 22 M492 18 L486 22' fill='none' stroke='%23b8c2cc' stroke-opacity='.28' stroke-width='.8'/%3E%3C/svg%3E") center/100% 100% no-repeat}
+
+/* nav */
+nav.top{position:sticky; top:0; z-index:30; background:rgba(20,22,25,.86); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--line); padding-top:env(safe-area-inset-top,0px)}
+nav.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px}
+.wordmark{display:block; line-height:0}
+.wordmark img{height:30px; width:auto; max-width:none}
+@media (max-width:560px){.wordmark img{height:22px}}
+nav.top .wrap{flex-wrap:wrap; row-gap:4px; padding-block:6px}
+.navlinks{display:flex; gap:20px; font-size:.84rem; list-style:none; margin:0; padding:0}
+.navlinks a{text-decoration:none; color:var(--dim); padding:8px 0; display:inline-block}
+.navlinks a:hover{color:var(--text)}
+@media (max-width:560px){.navlinks{gap:12px; font-size:.76rem}}
+
+/* hero */
+.hero{position:relative; min-height:min(82vh,760px); display:flex; align-items:flex-end; background:var(--steel-deep); overflow:hidden}
+.hero > picture,.hero > picture img{position:absolute; inset:0; width:100%; height:100%}
+.hero > picture img{object-fit:cover; object-position:center 40%; filter:saturate(.85) contrast(1.05)}
+.hero::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(180deg, rgba(20,22,25,.1) 0%, rgba(20,22,25,.35) 45%, rgba(20,22,25,.96) 94%),
+             linear-gradient(90deg, rgba(20,22,25,.6) 0%, transparent 45%)}
+/* condensation: soft droplets, decorative only */
+.hero .fog{position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.35;
+  background:
+    radial-gradient(circle at 12% 30%, rgba(228,232,236,.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 74% 18%, rgba(228,232,236,.08) 0 3px, transparent 4px),
+    radial-gradient(circle at 63% 62%, rgba(228,232,236,.07) 0 2px, transparent 3px);
+  background-size:180px 220px, 260px 190px, 210px 240px}
+.hero-inner{position:relative; z-index:2; padding-block:72px 56px; width:100%}
+.hero-mark{width:min(440px,78vw); height:auto; margin-bottom:22px; filter:drop-shadow(0 2px 10px rgba(0,0,0,.6))}
+.eyebrow{font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--nature); margin-bottom:14px}
+h1.title{font-size:clamp(2.5rem,7vw,5rem); letter-spacing:-.01em; color:#f2f4f6}
+.tagline{max-width:600px; margin-top:16px; font-size:clamp(1rem,1.6vw,1.12rem); color:#c7ced5}
+
+/* buttons */
+.cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px}
+.btn{display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:12px 22px; border-radius:3px; font:500 .9rem/1 var(--sans); letter-spacing:.02em; text-decoration:none; border:1px solid transparent; cursor:pointer}
+.btn-primary{background:var(--master); color:#1a1309}
+.btn-primary:hover{background:#ddab5c}
+.btn-ghost{border-color:var(--line); color:var(--text)}
+.btn-ghost:hover{border-color:var(--nature); color:var(--nature)}
+
+/* sections */
+section{padding:84px 0}
+.label{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--nature); margin-bottom:10px}
+h2.section-title{font-size:clamp(1.8rem,3.4vw,2.5rem); max-width:680px}
+.lede{color:var(--dim); max-width:580px; margin-top:12px}
+
+/* catalog: one <article class="product"> per product. Add a product by copying an entry. */
+.catalog{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:18px; margin-top:44px; list-style:none; padding:0}
+.product{position:relative; display:flex; flex-direction:column; border:1px solid var(--line); border-radius:4px; overflow:hidden; min-width:0}
+.product::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--accent,var(--nature))}
+.product .thumb{aspect-ratio:16/10; background:var(--steel-deep); border-bottom:1px solid var(--line); overflow:hidden; position:relative}
+.product .thumb img{width:100%; height:100%; object-fit:cover; object-position:center top}
+.product .thumb.empty{display:flex; align-items:center; justify-content:center}
+.product .thumb.empty span{font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--dim); border:1px dashed var(--line); padding:8px 12px}
+.product .body{padding:22px 22px 24px; display:flex; flex-direction:column; gap:10px; flex:1}
+.status{font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; align-self:flex-start; padding:4px 8px; border:1px solid currentColor; border-radius:2px}
+.status.live{color:var(--nature)}
+.status.soon{color:var(--dim)}
+.product h3{font-size:1.55rem}
+.product .kind{font-family:var(--mono); font-size:.74rem; color:var(--dim)}
+.product p.desc{color:#c7ced5; font-size:.94rem}
+.product .foot{margin-top:auto; padding-top:10px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+.price{font-family:var(--mono); font-size:1rem; color:var(--text)}
+
+
+/* gallery */
+.gallery{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:44px}
+.gallery .gcard:last-child{grid-column:1 / -1}
+@media (max-width:760px){.gallery{grid-template-columns:1fr}}
+.gcard{margin:0; border:1px solid var(--line); border-top:3px solid var(--accent); border-radius:4px; overflow:hidden; background:var(--steel-deep); min-width:0}
+.gcard .win{aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; background:var(--steel-deep)}
+.gcard .win picture{display:block; height:100%}
+.gcard .win img{height:100%; width:auto; max-width:none}
+.gcard figcaption{padding:14px 16px 16px; color:var(--dim); font-size:.9rem}
+.gcard .num{font-family:var(--mono); font-size:.74rem; color:var(--accent); margin-right:4px}
+.gcard strong{font-family:var(--serif); font-size:1.15rem; color:var(--text); margin-right:6px}
+h3.sub{font-size:1.5rem; margin-top:56px}
+.daw{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:20px; align-items:start}
+@media (max-width:760px){.daw{grid-template-columns:1fr}}
+.daw figure{margin:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--steel-deep)}
+.daw figcaption{padding:10px 14px; font-size:.82rem; color:var(--dim)}
+.proof{font-size:.74rem; color:var(--dim); margin-top:14px}
+.product .thumb.proto img{object-position:center top}
+.product .thumb .tag{position:absolute; left:10px; bottom:10px; font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; background:rgba(11,13,15,.85); color:var(--text); border:1px solid var(--line); padding:5px 8px}
+.product .thumb{aspect-ratio:16/9}
+
+
+
+/* daylight banner: master mark on the logo sheet's pale ground */
+.daylight{background:#e6ece7; color:#1a1d1b; border-block:1px solid rgba(26,29,27,.12)}
+.daylight-inner{display:flex; align-items:center; justify-content:center; gap:clamp(28px,6vw,80px); min-height:clamp(220px,30vw,340px); padding-block:48px}
+.daylight-mark{width:clamp(84px,10vw,120px); height:auto}
+.daylight-text{font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(1.3rem,2.6vw,1.9rem); letter-spacing:.02em; color:#2b302d}
+@media (max-width:520px){.daylight-inner{flex-direction:column; gap:20px}}
+
+
+/* hero: the brand sheet as a horizontal specimen plate */
+.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.hero-plate{padding-block:12px}
+.hero-plate .daylight-panel{flex:1 1 auto; justify-content:space-around}
+.plate{position:relative; display:flex; margin-inline:max(12px,env(safe-area-inset-left,0px)) max(12px,env(safe-area-inset-right,0px)); border:1px solid var(--line)}
+.plate::before,.plate::after{content:"+"; position:absolute; font:400 14px/1 var(--mono); color:var(--dim); z-index:2}
+.plate::before{left:-5px; top:-8px} .plate::after{right:-5px; bottom:-8px}
+.panel{flex:var(--pw) 1 0; display:flex; align-items:flex-start; justify-content:space-around; gap:clamp(16px,3vw,48px); padding:clamp(22px,3vw,40px) clamp(18px,2.6vw,40px) clamp(28px,3.4vw,48px); min-width:0}
+.panel.ground{background:#0e100f}
+.panel.daylight-panel{background:#e6ece7}
+.spec{margin:0; flex:var(--w) 1 0; min-width:0; max-width:calc(var(--w) * 1px)}
+.spec figcaption{font:400 .68rem/1.3 var(--mono); letter-spacing:.06em; margin-bottom:14px; white-space:nowrap}
+.ground .spec figcaption{color:#9aa19c}
+.daylight-panel .spec figcaption{color:#3b403d}
+.spec img{width:100%; height:auto; max-width:calc(var(--iw, var(--w)) * 1px)}
+@media (max-width:1440px){ .plate{flex-direction:column} .panel{justify-content:flex-start} }
+@media (max-width:700px){
+  .panel{flex-wrap:wrap}
+  .spec{flex:0 1 auto; width:min(calc(var(--w) * 1px),100%)}
+}
+.hero-copy{padding-block:44px 64px}
+.hero-copy .title{font-family:var(--serif); font-weight:600; line-height:1.1; font-size:clamp(2.2rem,5.5vw,4rem); color:#f2f4f6}
+
+/* mood photography: atmosphere only, never the product, never captioned */
+.mood-band{position:relative; height:clamp(220px,42vw,460px); overflow:hidden; background:var(--steel-deep)}
+.mood-band.short{height:clamp(160px,26vw,300px)}
+.mood-band picture,.mood-band picture img{position:absolute; inset:0; width:100%; height:100%}
+.mood-band picture img{object-fit:cover; filter:saturate(.8) brightness(.72)}
+.mood-band::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,var(--bg) 0%,transparent 22%,transparent 78%,var(--bg) 100%)}
+.mood-band .emblem{position:absolute; z-index:2; left:50%; top:50%; transform:translate(-50%,-50%); width:clamp(70px,9vw,110px); height:auto; filter:drop-shadow(0 4px 18px rgba(0,0,0,.8))}
+.mood-bg{position:relative; overflow:hidden}
+.mood-bg .bgpic,.mood-bg .bgpic img{position:absolute; inset:0; width:100%; height:100%}
+.mood-bg .bgpic img{object-fit:cover; filter:saturate(.75) brightness(.38)}
+.mood-bg > .wrap{position:relative; z-index:1}
+.foot-brand{display:flex; align-items:center; gap:14px}
+.foot-mark{width:40px; height:auto}
+.foot-jars{width:64px; height:52px; object-fit:cover; border-radius:3px; opacity:.85; border:1px solid var(--line)}
+
+/* flagship detail */
+.shot-frame{margin-top:44px; border-radius:4px; overflow:hidden; border:1px solid var(--line); background:var(--steel-deep); box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.cap{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-top:12px; flex-wrap:wrap}
+.cap .mono{font-size:.74rem; color:var(--dim)}
+.cap p{color:var(--dim); font-size:.9rem; max-width:520px}
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:36px}
+@media (max-width:720px){.pair{grid-template-columns:1fr}}
+.pair figure{margin:0; border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--steel-deep)}
+.pair figcaption{padding:12px 14px; font-size:.8rem; color:var(--dim)}
+
+.engines{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:48px; background:var(--line); border:1px solid var(--line)}
+@media (max-width:880px){.engines{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.engines{grid-template-columns:1fr}}
+.engine{background:var(--panel); padding:26px 22px; min-width:0; border-top:3px solid var(--accent)}
+.engine .num{font-family:var(--mono); font-size:.74rem; color:var(--accent)}
+.engine h3{font-size:1.3rem; margin-top:8px}
+.engine p{color:var(--dim); font-size:.9rem; margin-top:8px}
+
+.specs{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:0 32px; margin:40px 0 0; padding:0}
+.specs div{border-top:1px solid var(--line); padding:14px 0}
+.specs dt{font-family:var(--mono); font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--master)}
+.specs dd{margin:4px 0 0; color:#c7ced5; font-size:.92rem}
+
+.buy{text-align:center; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.buy h2{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.buy .price{margin-top:10px; color:var(--master)}
+.buy .cta-row{justify-content:center}
+.buy .note{color:var(--dim); font-size:.85rem; max-width:620px; margin:22px auto 0}
+
+footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom,0px))}
+.foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px}
+.foot-row .mono{font-size:.72rem; color:var(--dim)}
+.foot-links{display:flex; gap:18px; font-size:.84rem; flex-wrap:wrap}
+.foot-links a{text-decoration:none; color:var(--dim)}
+.foot-links a:hover{color:var(--nature)}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<svg class="grain" aria-hidden="true" focusable="false"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><img src="img/logo-lockup-horizontal.png" width="394" height="54" alt="Pure Ambience, back to top"></a>
+    <ul class="navlinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#catalog">Catalog</a></li>
+      <li><a href="#pure-ambience">Pure Ambience</a></li>
+      <li><a href="#buy">Buy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <picture>
+    <source srcset="img/hero_glasshouse.webp" type="image/webp">
+    <img src="img/hero_glasshouse.png" width="1408" height="768" alt="" fetchpriority="high">
+  </picture>
+  <div class="fog" aria-hidden="true"></div>
+  <div class="hero-inner wrap">
+    <img class="hero-mark" src="img/logo-wordmark.png" width="806" height="118" alt="Pure Ambience">
+    <div class="eyebrow">Plugins</div>
+    <h1 class="title">Instruments grown,<br>not designed.</h1>
+    <p class="tagline">We make plugins for psytrance, dark-psy, psycore, hi-tech and dark-ambient producers: real recorded nature, hands-on sound shaping.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#catalog">See the catalog</a>
+      <a class="btn btn-ghost" href="#pure-ambience">Pure Ambience, out now</a>
+    </div>
+  </div>
+</header>
+
+
+
+<main id="main">
+
+<section id="catalog" class="concrete">
+  <div class="wrap">
+    <div class="label">Catalog</div>
+    <h2 class="section-title">One instrument out now. Two more on the bench.</h2>
+    <p class="lede">Each one is its own plugin, sold on its own. Nothing is locked inside something you already own.</p>
+
+    <ul class="catalog">
+      <!-- ENTRY: live product -->
+      <li class="product" style="--accent:var(--nature)">
+        <div class="thumb">
+          <picture>
+            <source type="image/webp" srcset="img/v2-bass.webp">
+            <img src="img/v2-bass.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience, Bass tab: oscillator, filter, envelope and Twist knobs in the plugin window">
+          </picture>
+        </div>
+        <div class="body">
+          <span class="status live">Out now</span>
+          <h3>Pure Ambience</h3>
+          <div class="kind">Synth &middot; VST3 + AU (macOS) &middot; VST3 (Windows)</div>
+          <p class="desc">Four engines. One signal. Built for the dark side of psy.</p>
+          <div class="foot">
+            <span class="price">&pound;11.99</span>
+            <a class="btn btn-primary" href="https://vls7.gumroad.com/l/pure-ambience" data-gumroad-overlay-checkout="true">Buy on Gumroad</a>
+            <a class="btn btn-ghost" href="#pure-ambience">Details</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- ENTRY: in development (no price, no date, no buy button until it is built, verified and approved) -->
+      <li class="product" style="--accent:var(--bass)">
+        <div class="thumb proto">
+          <picture>
+            <source type="image/webp" srcset="img/rolling-gate-prototype-600.webp 600w, img/rolling-gate-prototype-1200.webp 1200w" sizes="(max-width:700px) 100vw, 360px">
+            <img src="img/rolling-gate-prototype-1200.jpg" width="1200" height="1246" loading="lazy" alt="Rolling Gate browser prototype: a 16-step gate grid with per-step level bars, retrigger and pitch rows, and Gate, Tone, Space, Motion and Journey tabs">
+          </picture>
+          <span class="tag">Browser prototype &middot; in development</span>
+        </div>
+        <div class="body">
+          <span class="status soon">Coming soon</span>
+          <h3>Rolling Gate</h3>
+          <div class="kind">Effect &middot; in development</div>
+          <p class="desc">A tempo-synced step gate for rolling basslines, as an insert effect for any track.</p>
+        </div>
+      </li>
+
+      <!-- ENTRY: in development -->
+      <li class="product" style="--accent:var(--atmos)">
+        <div class="thumb empty"><span>Nothing to show yet</span></div>
+        <div class="body">
+          <span class="status soon">Coming soon</span>
+          <h3>Pure Ambience: Nature Grains</h3>
+          <div class="kind">Instrument &middot; early stage</div>
+          <p class="desc">A granular/freeze instrument built on the same field recordings as the Nature engine.</p>
+        </div>
+      </li>
+
+      <!-- To add a product: copy one <li class="product"> block above, set --accent, status, name and line. -->
+    </ul>
+  </div>
+</section>
+
+<section class="hero-plate" aria-label="Pure Ambience marks">
+  <div class="plate" role="img" aria-label="Pure Ambience brand marks on daylight: the wordmark with its vine and crack underline, and the thorned-star master mark in ink and in single-ink mono">
+    <div class="panel daylight-panel" style="--pw:715">
+      <figure class="spec" style="--w:415">
+        <figcaption>WORDMARK ON DAYLIGHT</figcaption>
+        <img src="img/spec-wordmark-daylight.png" width="415" height="71" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>MASTER MARK, INK</figcaption>
+        <img src="img/spec-master-mark-ink.png" width="98" height="105" alt="">
+      </figure>
+      <figure class="spec" style="--w:150;--iw:98">
+        <figcaption>SINGLE INK, MONO</figcaption>
+        <img src="img/spec-single-ink-mono.png" width="98" height="104" alt="">
+      </figure>
+    </div>
+  </div>
+</section>
+<hr class="crack" aria-hidden="true">
+
+<section id="pure-ambience">
+  <div class="wrap">
+    <div class="label">Out now &middot; Pure Ambience</div>
+    <h2 class="section-title">Four engines. One signal. Built for the dark side of psy.</h2>
+    <p class="lede">Pure Ambience is a four-engine synthesizer plugin (VST3 + AU on Mac, VST3 on Windows) built around a simple idea: most synths sound clean because they're trying to. Pure Ambience is built to sound alive.</p>
+
+    <div class="gallery" aria-label="Pure Ambience, one card per engine">
+      <figure class="gcard" style="--accent:var(--bass)">
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/v2-bass.webp">
+            <img src="img/v2-bass.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience Bass tab: three oscillators, resonant filter, envelope, LFO and the Twist knob">
+          </picture>
+        </div>
+        <figcaption><span class="num">01</span> <strong>Bass</strong> Three oscillators into a resonant filter. Turn Twist, the one-knob drive and filter growl control, and a clean sub becomes a growl.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--melody)">
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/v2-melody.webp">
+            <img src="img/v2-melody.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience Melody tab: character strip with Crystal Bell selected, brightness, reverb, envelope, voice and vibrato controls">
+          </picture>
+        </div>
+        <figcaption><span class="num">02</span> <strong>Melody</strong> Pick one of 31 characters, from plucks and leads to bells and bars, then shape its envelope, brightness and vibrato.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--atmos)">
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/v2-atmosphere.webp">
+            <img src="img/v2-atmosphere.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience Atmosphere tab: chord mode, voicing, detune, filter, envelope, movement and Wild Bed controls">
+          </picture>
+        </div>
+        <figcaption><span class="num">03</span> <strong>Atmosphere</strong> One key plays a whole chord. Choose the chord and how it is spread, then lay a Nature recording under it with Wild Bed.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--nature)">
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/v2-nature.webp">
+            <img src="img/v2-nature.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience Nature tab: the 50-sound strip, waveform display, gate pattern, tone, envelope and rhythm controls">
+          </picture>
+        </div>
+        <figcaption><span class="num">04</span> <strong>Nature</strong> Play recordings from the wild from the keyboard like a sampler, 50 of them. Shape them with a gate, pan drift and grit.</figcaption>
+      </figure>
+      <figure class="gcard" style="--accent:var(--master)">
+        <div class="win">
+          <picture>
+            <source type="image/webp" srcset="img/v2-master.webp">
+            <img src="img/v2-master.jpg" width="954" height="872" loading="lazy" alt="Pure Ambience Master tab: spectrum, EQ curve, compressor, output meters, stereo field and output scope">
+          </picture>
+        </div>
+        <figcaption><span class="num">05</span> <strong>Master</strong> The last stage before your DAW: EQ, compressor, stereo width and drive across everything you play, with live meters.</figcaption>
+      </figure>
+    </div>
+
+    <p class="proof mono">Every screenshot in this gallery is the real plugin, not a render or a mock-up. The photographs elsewhere on this page are mood images, not the product.</p>
+
+    <dl class="specs">
+      <div><dt>Version</dt><dd>v2</dd></div>
+      <div><dt>Melody</dt><dd>31 character presets, each with its own designed envelope</dd></div>
+      <div><dt>Atmosphere</dt><dd>16 chord modes, 4 voicings, 4 sources and Wild Bed</dd></div>
+      <div><dt>Nature</dt><dd>50 sounds from the wild, played from the keyboard</dd></div>
+      <div><dt>Master</dt><dd>Spectrum, EQ, compressor, meters, stereo field</dd></div>
+      <div><dt>Filters</dt><dd>Switchable filter type (Low / Band / High-pass) per engine</dd></div>
+      <div><dt>Randomize</dt><dd>One-click Randomize per engine for instant sound-design starting points</dd></div>
+      <div><dt>A/B compare</dt><dd>Store and recall two full patches on the fly while you work</dd></div>
+      <div><dt>Master Drive</dt><dd>Saturation stage for extra headroom on hard-hitting, high-BPM material</dd></div>
+      <div><dt>Formats</dt><dd>VST3 + AU (macOS), VST3 (Windows) &middot; played and tested in FL Studio on macOS; other DAWs not yet tested</dd></div>
+      <div><dt>Requires</dt><dd>macOS 26.5 or later (Apple Silicon or Intel), or Windows 64-bit with the Visual C++ runtime</dd></div>
+    </dl>
+  </div>
+</section>
+
+<div class="mood mood-band short" aria-hidden="true">
+  <picture>
+    <source type="image/webp" srcset="img/mood-corridor-800.webp 800w, img/mood-corridor-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-corridor-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+  </picture>
+</div>
+
+<section class="buy mood-bg" id="buy">
+  <picture class="bgpic" aria-hidden="true">
+    <source type="image/webp" srcset="img/mood-scope-jars-800.webp 800w, img/mood-scope-jars-1380.webp 1380w" sizes="100vw">
+    <img src="img/mood-scope-jars-1380.jpg" width="1380" height="752" loading="lazy" alt="">
+  </picture>
+  <div class="wrap">
+    <div class="label">Pure Ambience</div>
+    <h2>Pure Ambience, on Gumroad.</h2>
+    <div class="price">&pound;11.99 &middot; VST3 + AU (macOS) &middot; VST3 (Windows) &middot; instant download</div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://vls7.gumroad.com/l/pure-ambience" data-gumroad-overlay-checkout="true">Buy on Gumroad &rarr;</a>
+    </div>
+    <p class="note">The macOS build isn't Apple-notarized yet, so first launch may show a security prompt.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <img class="foot-mark" src="img/logo-mark.png" width="172" height="186" alt="" aria-hidden="true">
+      <div class="mono">PUREAMBIENCE</div>
+    </div>
+    <div class="foot-links">
+      <a href="https://vls7.gumroad.com/l/pure-ambience">Gumroad</a>
+      <a href="mailto:pure.ambience.official@outlook.com">pure.ambience.official@outlook.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Gumroad's own overlay checkout. If it fails to load, the links above still go straight to the Gumroad page. -->
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+</body>
+</html>
